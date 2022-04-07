@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "section": "Math",
+    "question": "If 3x + 7 = 22, what is the value of x?",
+    "choices": {
+      "A": "3",
+      "B": "5",
+      "C": "7",
+      "D": "15"
+    },
+    "answer": "B",
+    "explanation": "Subtract 7 from both sides to get 3x = 15, then divide by 3 to get x = 5."
+  },
+  {
+    "id": 2,
+    "section": "Math",
+    "question": "A line passes through the points (0, 2) and (4, 10). What is the slope of the line?",
+    "choices": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "answer": "B",
+    "explanation": "Slope = (10 - 2) / (4 - 0) = 8 / 4 = 2."
+  }
+]
