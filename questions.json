@@ -24,5 +24,57 @@
     },
     "answer": "B",
     "explanation": "Slope = (10 - 2) / (4 - 0) = 8 / 4 = 2."
+  },
+  {
+    "id": 3,
+    "section": "Math",
+    "question": "If f(x) = x^2 - 3x, what is f(4)?",
+    "choices": {
+      "A": "1",
+      "B": "4",
+      "C": "7",
+      "D": "12"
+    },
+    "answer": "B",
+    "explanation": "f(4) = 4^2 - 3(4) = 16 - 12 = 4."
+  },
+  {
+    "id": 4,
+    "section": "Math",
+    "question": "The average of five numbers is 12. If four of the numbers are 8, 10, 14, and 16, what is the fifth number?",
+    "choices": {
+      "A": "10",
+      "B": "12",
+      "C": "14",
+      "D": "16"
+    },
+    "answer": "B",
+    "explanation": "The sum of all five must be 5 x 12 = 60. The four known numbers sum to 48, so the fifth is 60 - 48 = 12."
+  },
+  {
+    "id": 5,
+    "section": "Reading",
+    "question": "As used in the sentence 'The scientist's claims were met with universal skepticism,' the word 'skepticism' most nearly means:",
+    "choices": {
+      "A": "enthusiasm",
+      "B": "doubt",
+      "C": "agreement",
+      "D": "confusion"
+    },
+    "answer": "B",
+    "explanation": "Skepticism refers to an attitude of doubt or questioning, the opposite of acceptance or enthusiasm."
+  },
+  {
+    "id": 6,
+    "section": "Reading",
+    "question": "A passage describes a character who 'paused at the threshold, unwilling to step into the unfamiliar room.' This detail primarily suggests that the character feels:",
+    "choices": {
+      "A": "excited",
+      "B": "hesitant",
+      "C": "angry",
+      "D": "bored"
+    },
+    "answer": "B",
+    "explanation": "Pausing and being 'unwilling to step in' shows reluctance, which best matches hesitant."
   }
 ]
