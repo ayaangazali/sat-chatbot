@@ -76,5 +76,31 @@
     },
     "answer": "B",
     "explanation": "Pausing and being 'unwilling to step in' shows reluctance, which best matches hesitant."
+  },
+  {
+    "id": 7,
+    "section": "Writing",
+    "question": "Choose the option that corrects the underlined error: 'Each of the students have submitted their essay.'",
+    "choices": {
+      "A": "have submitted their essay",
+      "B": "has submitted their essay",
+      "C": "have submitted his essay",
+      "D": "having submitted their essay"
+    },
+    "answer": "B",
+    "explanation": "'Each' is singular, so it takes the singular verb 'has submitted.'"
+  },
+  {
+    "id": 8,
+    "section": "Writing",
+    "question": "Which choice best combines the two sentences? 'The museum was crowded. We still enjoyed the exhibit.'",
+    "choices": {
+      "A": "The museum was crowded, we still enjoyed the exhibit.",
+      "B": "Although the museum was crowded, we still enjoyed the exhibit.",
+      "C": "The museum was crowded we still enjoyed the exhibit.",
+      "D": "The museum was crowded so we still enjoyed the exhibit."
+    },
+    "answer": "B",
+    "explanation": "'Although' creates a logical contrast between the crowd and still enjoying the exhibit, and it fixes the comma splice in choice A."
   }
 ]
