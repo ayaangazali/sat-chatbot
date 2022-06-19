@@ -33,18 +33,30 @@ def load_questions(path=QUESTIONS_FILE):
         return []
 
 
+def show_menu():
+    print("\n=== SAT Bot ===")
+    print("1) Explain mode - paste a question and get a step-by-step explanation")
+    print("2) Quiz mode - get quizzed on practice questions")
+    print("Type /quit to exit.")
+
+
 def main():
     if not setup():
         return
     questions = load_questions()
     print(f"SAT bot is ready. Loaded {len(questions)} questions.")
     while True:
+        show_menu()
         choice = input("Pick a mode> ").strip().lower()
         if choice == "/quit":
             print("Bye! Good luck on the SAT.")
             break
+        elif choice == "1":
+            print("(explain mode coming soon)")
+        elif choice == "2":
+            print("(quiz mode coming soon)")
         else:
-            print("Not sure what that means yet.")
+            print("Please pick 1, 2, or /quit.")
 
 
 if __name__ == "__main__":
