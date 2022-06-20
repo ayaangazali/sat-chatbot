@@ -33,6 +33,25 @@ def load_questions(path=QUESTIONS_FILE):
         return []
 
 
+def explain_mode():
+    """Let the user paste an SAT question and have the bot explain it."""
+    print("\n--- Explain mode ---")
+    print("Paste or type an SAT question (with choices if you have them).")
+    print("Type /quit to go back to the menu.\n")
+    while True:
+        question = input("Question> ").strip()
+        if question.lower() == "/quit":
+            break
+        if not question:
+            continue
+        prompt = (
+            "You are an SAT tutor. Explain the following SAT question step by step, "
+            "then state the correct answer clearly at the end.\n\n"
+            f"{question}\n\nExplanation:"
+        )
+        print(prompt)
+
+
 def show_menu():
     print("\n=== SAT Bot ===")
     print("1) Explain mode - paste a question and get a step-by-step explanation")
@@ -52,7 +71,7 @@ def main():
             print("Bye! Good luck on the SAT.")
             break
         elif choice == "1":
-            print("(explain mode coming soon)")
+            explain_mode()
         elif choice == "2":
             print("(quiz mode coming soon)")
         else:
