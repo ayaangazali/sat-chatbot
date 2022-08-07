@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import openai
 
 QUESTIONS_FILE = "questions.json"
+MODEL = "text-davinci-003"
 
 
 def setup():
@@ -33,6 +34,16 @@ def load_questions(path=QUESTIONS_FILE):
         return []
 
 
+def ask_llm(prompt):
+    """Send a prompt to the OpenAI Completion API and return the text."""
+    response = openai.Completion.create(
+        engine=MODEL,
+        prompt=prompt,
+        max_tokens=400,
+    )
+    return response.choices[0].text.strip()
+
+
 def explain_mode():
     """Let the user paste an SAT question and have the bot explain it."""
     print("\n--- Explain mode ---")
@@ -49,7 +60,9 @@ def explain_mode():
             "then state the correct answer clearly at the end.\n\n"
             f"{question}\n\nExplanation:"
         )
-        print(prompt)
+        answer = ask_llm(prompt)
+        if answer:
+            print(f"\n{answer}\n")
 
 
 def show_menu():
