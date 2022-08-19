@@ -65,6 +65,13 @@ def explain_mode():
             print(f"\n{answer}\n")
 
 
+def ask_one_question(q):
+    """Ask a single multiple-choice question."""
+    print(f"\n[{q['section']}] {q['question']}")
+    for letter in ("A", "B", "C", "D"):
+        print(f"  {letter}) {q['choices'][letter]}")
+
+
 def show_menu():
     print("\n=== SAT Bot ===")
     print("1) Explain mode - paste a question and get a step-by-step explanation")
