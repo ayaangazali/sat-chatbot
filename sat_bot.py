@@ -66,10 +66,17 @@ def explain_mode():
 
 
 def ask_one_question(q):
-    """Ask a single multiple-choice question."""
+    """Ask a single multiple-choice question and return the chosen letter."""
     print(f"\n[{q['section']}] {q['question']}")
     for letter in ("A", "B", "C", "D"):
         print(f"  {letter}) {q['choices'][letter]}")
+    while True:
+        choice = input("Your answer (A-D, or /quit)> ").strip().upper()
+        if choice == "/QUIT":
+            return None
+        if choice in ("A", "B", "C", "D"):
+            return choice
+        print("Please enter A, B, C, or D.")
 
 
 def show_menu():
