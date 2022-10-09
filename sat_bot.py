@@ -85,6 +85,18 @@ def ask_one_question(q):
         return False
 
 
+def quiz_mode(questions):
+    """Run through some questions and check the user's answers."""
+    print("\n--- Quiz mode ---")
+    if not questions:
+        print("No questions are loaded, so the quiz can't run.")
+        return
+    n = min(5, len(questions))
+    print(f"I'll ask you {n} questions. Type /quit any time to stop.\n")
+    for q in questions[:n]:
+        ask_one_question(q)
+
+
 def show_menu():
     print("\n=== SAT Bot ===")
     print("1) Explain mode - paste a question and get a step-by-step explanation")
@@ -106,7 +118,7 @@ def main():
         elif choice == "1":
             explain_mode()
         elif choice == "2":
-            print("(quiz mode coming soon)")
+            quiz_mode(questions)
         else:
             print("Please pick 1, 2, or /quit.")
 
