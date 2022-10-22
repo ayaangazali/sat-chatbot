@@ -93,8 +93,16 @@ def quiz_mode(questions):
         return
     n = min(5, len(questions))
     print(f"I'll ask you {n} questions. Type /quit any time to stop.\n")
+    score = 0
+    asked = 0
     for q in questions[:n]:
-        ask_one_question(q)
+        result = ask_one_question(q)
+        if result is None:
+            print("Stopping the quiz early.")
+            break
+        asked += 1
+        if result:
+            score += 1
 
 
 def show_menu():
