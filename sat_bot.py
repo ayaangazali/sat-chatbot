@@ -103,6 +103,11 @@ def quiz_mode(questions):
         asked += 1
         if result:
             score += 1
+    if asked:
+        pct = round(100 * score / asked)
+        print(f"\nYou got {score} out of {asked} correct ({pct}%).")
+    else:
+        print("\nNo questions were answered.")
 
 
 def show_menu():
