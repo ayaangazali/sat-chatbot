@@ -85,6 +85,20 @@ def ask_one_question(q):
         return False
 
 
+def explain_missed(q):
+    """Use the LLM to explain a question the user got wrong."""
+    choices_text = "\n".join(f"{k}) {v}" for k, v in q["choices"].items())
+    prompt = (
+        "You are an SAT tutor. Explain step by step why the correct answer to this "
+        "question is correct.\n\n"
+        f"{q['question']}\n{choices_text}\n\n"
+        f"The correct answer is {q['answer']}.\n\nExplanation:"
+    )
+    answer = ask_llm(prompt)
+    if answer:
+        print(f"\n{answer}\n")
+
+
 def quiz_mode(questions):
     """Run through some questions and check the user's answers."""
     print("\n--- Quiz mode ---")
@@ -103,6 +117,8 @@ def quiz_mode(questions):
         asked += 1
         if result:
             score += 1
+        else:
+            explain_missed(q)
     if asked:
         pct = round(100 * score / asked)
         print(f"\nYou got {score} out of {asked} correct ({pct}%).")
