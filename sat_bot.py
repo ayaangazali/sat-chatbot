@@ -86,7 +86,12 @@ def ask_one_question(q):
 
 
 def explain_missed(q):
-    """Use the LLM to explain a question the user got wrong."""
+    """Optionally use the LLM to explain a question the user got wrong."""
+    choice = input("Want an explanation for that one? (y/n)> ").strip().lower()
+    if choice != "y":
+        # fall back to the explanation stored in the question bank
+        print(f"Hint: {q['explanation']}")
+        return
     choices_text = "\n".join(f"{k}) {v}" for k, v in q["choices"].items())
     prompt = (
         "You are an SAT tutor. Explain step by step why the correct answer to this "
@@ -97,6 +102,9 @@ def explain_missed(q):
     answer = ask_llm(prompt)
     if answer:
         print(f"\n{answer}\n")
+    else:
+        # API failed, so use the built-in explanation
+        print(f"Hint: {q['explanation']}")
 
 
 def quiz_mode(questions):
