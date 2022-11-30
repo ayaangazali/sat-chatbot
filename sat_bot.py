@@ -36,12 +36,17 @@ def load_questions(path=QUESTIONS_FILE):
 
 def ask_llm(prompt):
     """Send a prompt to the OpenAI Completion API and return the text."""
-    response = openai.Completion.create(
-        engine=MODEL,
-        prompt=prompt,
-        max_tokens=400,
-    )
-    return response.choices[0].text.strip()
+    try:
+        response = openai.Completion.create(
+            engine=MODEL,
+            prompt=prompt,
+            max_tokens=400,
+            temperature=0.3,
+        )
+        return response.choices[0].text.strip()
+    except Exception as e:
+        print(f"Sorry, something went wrong talking to the API: {e}")
+        return None
 
 
 def explain_mode():
