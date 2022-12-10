@@ -1,4 +1,7 @@
-"""SAT chatbot - helps answer and quiz SAT practice questions."""
+"""SAT chatbot - helps answer and quiz SAT practice questions.
+
+Uses the OpenAI Completion API (text-davinci-003).
+"""
 
 import json
 import os
