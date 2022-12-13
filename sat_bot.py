@@ -93,28 +93,6 @@ def ask_one_question(q):
         return False
 
 
-def explain_missed(q):
-    """Optionally use the LLM to explain a question the user got wrong."""
-    choice = input("Want an explanation for that one? (y/n)> ").strip().lower()
-    if choice != "y":
-        # fall back to the explanation stored in the question bank
-        print(f"Hint: {q['explanation']}")
-        return
-    choices_text = "\n".join(f"{k}) {v}" for k, v in q["choices"].items())
-    prompt = (
-        "You are an SAT tutor. Explain step by step why the correct answer to this "
-        "question is correct.\n\n"
-        f"{q['question']}\n{choices_text}\n\n"
-        f"The correct answer is {q['answer']}.\n\nExplanation:"
-    )
-    answer = ask_llm(prompt)
-    if answer:
-        print(f"\n{answer}\n")
-    else:
-        # API failed, so use the built-in explanation
-        print(f"Hint: {q['explanation']}")
-
-
 def quiz_mode(questions):
     """Run through some questions and check the user's answers."""
     print("\n--- Quiz mode ---")
@@ -140,6 +118,28 @@ def quiz_mode(questions):
         print(f"\nYou got {score} out of {asked} correct ({pct}%).")
     else:
         print("\nNo questions were answered.")
+
+
+def explain_missed(q):
+    """Optionally use the LLM to explain a question the user got wrong."""
+    choice = input("Want an explanation for that one? (y/n)> ").strip().lower()
+    if choice != "y":
+        # fall back to the explanation stored in the question bank
+        print(f"Hint: {q['explanation']}")
+        return
+    choices_text = "\n".join(f"{k}) {v}" for k, v in q["choices"].items())
+    prompt = (
+        "You are an SAT tutor. Explain step by step why the correct answer to this "
+        "question is correct.\n\n"
+        f"{q['question']}\n{choices_text}\n\n"
+        f"The correct answer is {q['answer']}.\n\nExplanation:"
+    )
+    answer = ask_llm(prompt)
+    if answer:
+        print(f"\n{answer}\n")
+    else:
+        # API failed, so use the built-in explanation
+        print(f"Hint: {q['explanation']}")
 
 
 def show_menu():
